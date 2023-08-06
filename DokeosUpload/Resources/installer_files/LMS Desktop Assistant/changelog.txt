@@ -1,0 +1,294 @@
+LMS Desktop Assistant v1.12.4
+-----------------------------
+October 13, 2011
+
+Functionality:
+-------------
+* Updating of exercises has been optimized, so the deleting of the exercise's old questions is nearly twice as fast.
+* Uploading of exercises has been optimized so is goes about 20% faster than before.
+
+Fixed Bugs:
+----------
+* Exercises with more than 20 questions will now upload correctly to the Chamilo 2.0 platform
+* Blanks questions with multiple answers and regular expressions no longer abort the upload with an error.
+
+
+LMS Desktop Assistant v1.12.3
+-----------------------------
+October 11, 2011
+
+Functionality:
+-------------
+* The weights of all separate questions in an exercise can now be added behind the question title, in the same way it's done for multiple choice answers. the Word templates have been updated so the cursor will jump to the end of the line when [tab] character is inserted in the title.
+
+
+LMS Desktop Assistant v1.12.2
+-----------------------------
+September 26, 2011
+
+Fixed Bugs:
+----------
+* Fixed all category name checks so mixed case category names actually work.
+
+
+LMS Desktop Assistant v1.12.1
+-----------------------------
+September 19, 2011
+
+Fixed Bugs:
+----------
+* Creating or fetching category names ending on ')' on the Chamilo 2.0 platform can no longer hang or crash the program.
+* Names of files and folders are no longer put in lower case on the Chamilo 2.0 platform.
+
+
+LMS Desktop Assistant v1.12
+---------------------------
+September 15, 2011
+
+Functionality:
+-------------
+* The Chamilo 2.0 platform now has a virtual course called Repository, to allow uploading items without publishing them. Making a Subject with only this virtual course in it allows keeping non-published objects synchronized.
+* In Chamilo 2.0, published objects will now correctly be shared with other course administrators.
+* A new type of question (Type gaps dropdown) has been added. This type's syntax is the same as "Fill in the Gaps", but the multiple answers in gaps are shown as dropdown menu on the platform.
+
+Fixed Bugs:
+----------
+* The default platform URL is now correctly set to the https protocol.
+* Trying to generate statistics from Chamilo 2.0 no longer crashes the program.
+* A bug that occurred when checking if an object existed on the Chamilo 2.0 platform has been fixed.
+* Fixed a bug in the HTML-removing filter for gaps exercises in the MS Word scanner
+* The method to scan for a question after it's been uploaded has been improved so it can't get disrupted by the name cutoff in the repository view.
+
+
+Older version updates:
+
+LMS Desktop Assistant v1.11.4
+-----------------------------
+June 9, 2011
+
+Fixed Bugs:
+----------
+* Fixed the problem that occured when uploading an exercise without description to Chamilo 2.0.
+
+
+LMS Desktop Assistant v1.11.3
+-----------------------------
+June 9, 2011
+
+Functionality:
+-------------
+* Removed the now-obsolete "Chamilo 2.0 test" platform.
+
+Fixed Bugs:
+----------
+* Publishing now works again on Chamilo; it was broken because of changes on the platform.
+
+
+LMS Desktop Assistant v1.11.2
+-----------------------------
+June 6, 2011
+
+Functionality:
+-------------
+* A failsafe has been added to the Chamilo platform so the program checks if a folder has been created even if the platform returned an error after the creation request.
+
+
+LMS Desktop Assistant v1.11.1
+-----------------------------
+May 31, 2011
+
+Functionality:
+-------------
+* When converting files to PDF, the filenames of the generated files will have all spaces replaced by underscores, to mimick the behaviour of files downloaded from the platforms. This option can be disabled in the Preferences window.
+
+Fixed Bugs:
+----------
+* When converting documents to PDF and splitting them on style, the converted filenames had an extra underscore added to the end (in v1.11). This is now fixed.
+
+
+LMS Desktop Assistant v1.11
+---------------------------
+May 27, 2011
+
+Functionality:
+-------------
+* Files can now be manually marked as "already synchronized", so they will not be uploaded until they have been modified. This is handy to prevent reuploading of exercises which were already uploaded using the Exercises tab.
+* Files can now be manually marked as "not synchronized", to force a reupload on the next synchronization.
+* A portable version of the program is now available instead of the old non-administrator install.
+* The program now supports the Chamilo 2.0 platform.
+   Remark: The Chamilo implementation has support for the new advanced options of the "Fill in the Blanks" exercises. However, if you are using a version of Chamilo which does not yet support advanced options like default scores, you should use the platform "Chamilo 2.0 test" for better compatibility.
+
+Fixed bugs:
+----------
+* The file selected in the synchronization tree view will no longer be marked as 'modified' after opening and closing the Preferences window.
+* When a setting was not found in the settings file, all settings read after it would revert to the built-in defaults. This has been fixed.
+
+Internal changes:
+----------------
+* Spreadsheets and presentations are now included in the system of supported file types. This will allow implementation of (PDF conversions for) other spreadsheet and presentation file types besides MS Office without needing any changes in the program's core. The new implementations simply have to be added to the list of supported file types, with the correct type identification.
+* Optimized the fetching of course data on login.
+
+LMS Desktop Assistant v1.10
+---------------------------
+January 3, 2011
+
+Fixed bugs:
+----------
+* Course names that contain a colon no longer cause problems in the Statistics module.
+* Changes to matching questions are now correctly detected by the Synchronization module.
+* Exercises are now correctly sorted in the statistics module.
+
+
+LMS Desktop Assistant v1.09
+---------------------------
+September 17, 2010
+
+Functionality:
+-------------
+* You can print the change log when an update is available.
+* We introduced groups functionality in the statistics module. You can now select groups of students, when exporting results per student.
+* You can now specify which columns to show in the Excel reports when exporting statistics.
+* Instead of downloading the latest version of the help file, LMSDA will now download the help file for the installed version.
+* The status text next to the login/logout button is set to bold and green when logged in.
+* Anonymous statistics are collected (number of questions uploaded through LMSDA) and shown on the website.
+
+Fixed bugs:
+----------
+* The exercises are now sorted alphabetically when exporting statistics.
+* The column width bug when exporting the results per student statistics.
+
+Internal changes
+----------------
+* Optimized the code of the result per student class.
+
+
+LMS Desktop Assistant v1.08
+---------------------------
+August 20, 2010
+
+Functionality:
+-------------
+* Microsoft PowerPoint presentations can now be published as PDF documents during synchronization.
+* Microsoft Excel workbooks can now be published as PDF documents during synchronization.
+* The default 'Save to' directory in Word is now set to the 'My subjects' directory when creating new exercises.
+* You can now select multiple items in each list on the Manage subjects frame.
+* Courses can be linked to multiple subjects.
+* When the user checks for updates, he will see the release notes before going to the update site. (when an update is available)
+* You can now set the default score for question types "Fill in the gaps" and "Matching" from the preferences frame.
+* A log viewer is now available.
+* The expansion state of the tree view is now saved.
+* You can now choose whether all attempts have to be calculated or not when generating the results per student report.
+* The results per student report is now completely dynamic. This means if you delete one or more columns, the averages will be recalculated.
+* The manual is updated to version 1.08.
+
+Fixed bugs:
+----------
+* When the user clicked on "Apply to all files in this folder", every file in that directory would get the edited icon.
+* A bug in the language controller when a parameter had index 0.
+* A workaround is implemented for the Word bug that resets the numbering of certain fields when exporting a selection to PDF.
+* A bug that caused a rewrite of all global settings after the no-longer-used node "pdfSplitStyle".
+* the tooltips on the synchronization tab are now again displayed.
+
+Internal changes:
+----------------
+* The internal procedure to open a new exercise document has been changed.
+* Marked no-longer-used methods as deprecated.
+* Improved the internal procedure that handles the synchronization.
+* Improved error handling.
+* Files with previous synchronization errors are now also processed.
+* Double clicking on the status label will also open the log viewer.
+
+
+LMS Desktop Assistant v1.07
+---------------------------
+July 19, 2010
+
+v1.07 consists mostly of bug fixes.
+
+
+Change log for LMS Desktop Assistant v1.07:
+
+Functionality:
+-------------
+* Fixed a crash that occured when right-clicking on the empty space in the synchronization tree view.
+* Fixed the "Apply to all files in this folder" function in Synchronization to implement all new synchronization options.
+* Implemented all new upload options in the other tabs of the user interface.
+* Fixed incorrect internal parameters that prevented the use of the upload tab.
+* Opening the exercises template with examples will disable the "include exercise examples" checkbox afterwards.
+* When a Subject's folder is missing, the Subject will be removed on startup. If it is removed during runtime, the controls will give appropriate error messages.
+* The settings frame now has a button to go to the folder where the program settings are saved, so users can make backups of the settings.
+* The program no longer tries to download the readme PDF to the installation folder, since that isn't guaranteed to be writable by the user.
+
+Internal changes:
+----------------
+* Uninstall of a global install will now correctly delete the program settings for all users.
+
+
+LMS Desktop Assistant v1.06
+---------------------------
+July 8, 2010
+
+v1.06 offers a better user interface for the synchronization tab, with more detailed options for each upload type.
+
+
+Change log for LMS Desktop Assistant v1.06:
+
+Functionality:
+-------------
+* The user interface of synchronization now only shows the options of the selected upload type.
+* The tree view of the synchronization tab is now wider.
+* Files uploaded through synchronization can be set invisible, and can be given a description.
+* Exercises uploaded through synchronization can be set to give randomized questions.
+* PDF files uploaded through synchronization can use a customized filename template.
+* All update functions have been optimized so reuploads of already-uploaded items only happen when they are really needed.
+
+
+LMS Desktop Assistant v1.05
+---------------------------
+June 25, 2010
+
+The main update for v1.05 is the addition of Matching questions. There are also several improvements in the PDF splitting logic.
+
+
+Change log for LMS Desktop Assistant v1.05:
+
+Functionality:
+-------------
+* Matching questions can now be made in documents and uploaded to the platform. The new question type style has been added to the exercise templates.
+* Gaps questions with regular expressions that contain backslashes are now uploaded correctly to Dokeos.
+* Images in the description of an exercise are now shown correctly on the platform.
+* Modifications to the PDF name template now cause files synchronized as PDFs to show up as Modified. (In future versions, the name template will be made customizable for each separate file)
+* When splitting a document to PDF parts, the part before the first found style will be number 0 instead of number 1. This setting can be disabled in the program settings.
+* If a document is split into PDF parts and set to split at the actual style position, empty pages will be removed from the end of the split part.
+* To prevent numbers in answers from being mistakenly identified as an answer score, the + or - sign is now mandatory for all non-zero scores.
+* The 'optional hyphen' characters are now removed from the filenames of split PDF parts that use the text of the style.
+* Removing a subject now also removes the synchronization data saved in the subject folder.
+
+
+LMS Desktop Assistant v1.04
+---------------------------
+June 9, 2010
+
+For v1.04, LMS Desktop Assistant's synchronization tool has been drastically optimized. The biggest optimization is its new ability to recognise which exercises or PDF parts read from a document are unmodified and don't need to be reuploaded to the platform. This means that exercises documents can be expanded with new exercises without influencing the exercises in it that are already on the platform.
+
+Note that these changes only apply to the synchronization tool: uploads performed from the Exercises and PFD conversion tabs will still overwrite any existing items on the platform.
+
+
+Change log for LMS Desktop Assistant v1.04:
+
+Functionality:
+-------------
+* When scanning exercises from a document, the program now removes any empty elements at the end of the exercises, questions and answers.
+* The problem that caused text colors to be removed from exercises has been solved.
+* Blocks of underlined colored text in exercises are now underlined in the same color as the text.
+* When re-synchronizing a subject after adding new courses to it, it no longer crashes or uploads things to courses which aren't linked to the Subject.
+* Synchronization will now only upload the modified and new exercises scanned from an exercises document.
+* Synchronization will now only upload the modified and new PDFs converted from a Word document.
+* When updating an existing exercise on Dokeos, the old questions are now actually deleted from the platform instead of orphaned.
+* When only the options of an exercise are changed after synchronization, the exercise will not be reuploaded completely. Only the options will be changed.
+* Vector-based MS Word clipart images used in exercises are now correctly converted to high-quality PNG.
+* The Dokeos platform removes leading and trailing from gaps answers before evaluating them. To prevent the platform from having impossible questions, the program will now do the same to the gaps answers scanned from documents.
+
+Internal changes:
+----------------
+* Abstraction of document types and platforms now uses additional DocumentInfo and PlatformInfo objects, to make it easier to add new ones.

@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03882CD3-DE8C-420D-B7F1-D1A42718C9D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lmsda</RootNamespace>
+    <AssemblyName>LMS Desktop Assistant</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.1.2.4</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>lmsda.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\lms_5.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>45402633893895F921D5BC732821BF7FFA3EC704</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DokeosUpload_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Office, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SgmlReaderDll, Version=1.0.3.24672, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\SgmlReaderDll.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="domain\exercise\ExercisesValidator.cs" />
+    <Compile Include="domain\ProgramConstants.cs" />
+    <Compile Include="domain\score\data\AnswerResult.cs" />
+    <Compile Include="domain\score\data\ExerciseResult.cs" />
+    <Compile Include="domain\score\data\Group.cs" />
+    <Compile Include="domain\score\data\Groups.cs" />
+    <Compile Include="domain\score\data\QuestionResult.cs" />
+    <Compile Include="domain\score\Scores.cs" />
+    <Compile Include="domain\score\statistics\AnswerPercentage.cs" />
+    <Compile Include="domain\score\statistics\AnswerStats.cs" />
+    <Compile Include="domain\score\statistics\Calculator.cs" />
+    <Compile Include="domain\score\statistics\ExerciseDetailsPerStudentCalculator.cs" />
+    <Compile Include="domain\score\statistics\ExerciseStats.cs" />
+    <Compile Include="domain\score\statistics\MultipleChoicePercentageCalculator.cs" />
+    <Compile Include="domain\score\statistics\QuestionStats.cs" />
+    <Compile Include="domain\score\data\Student.cs" />
+    <Compile Include="domain\score\statistics\ResultsPerStudentCalculator.cs" />
+    <Compile Include="domain\PortableIdentifier.cs" />
+    <Compile Include="domain\ui\FileUploadUI.cs" />
+    <Compile Include="domain\ui\MainUI.cs" />
+    <Compile Include="domain\user\Subject.cs" />
+    <Compile Include="domain\user\SubjectLogin.cs" />
+    <Compile Include="domain\ui\State.cs" />
+    <Compile Include="domain\user\synchronization\FileSettings.cs" />
+    <Compile Include="domain\user\synchronization\SynchronizationOperations.cs" />
+    <Compile Include="domain\user\synchronization\SynchronizationStatus.cs" />
+    <Compile Include="domain\user\synchronization\SynchronizationType.cs" />
+    <Compile Include="domain\util\xml\ScanMode.cs" />
+    <Compile Include="domain\util\xml\SingleNodeContentScanner.cs" />
+    <Compile Include="persistence\document\DocumentType.cs" />
+    <Compile Include="domain\util\PresentationtPublishTypes.cs" />
+    <Compile Include="gui\EditSubjectFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\EditSubjectFrame.Designer.cs">
+      <DependentUpon>EditSubjectFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FirstRunFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FirstRunFrame.Designer.cs">
+      <DependentUpon>FirstRunFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\listview\DragAndDropListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gui\LogViewerFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\LogViewerFrame.Designer.cs">
+      <DependentUpon>LogViewerFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ManageSubjectsFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ManageSubjectsFrame.Designer.cs">
+      <DependentUpon>ManageSubjectsFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanelForExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanelForExcel.Designer.cs">
+      <DependentUpon>FileOptionsPDFPanelForExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanelForPowerPoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanelForPowerPoint.Designer.cs">
+      <DependentUpon>FileOptionsPDFPanelForPowerPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\SynchronizeHelpFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\SynchronizeHelpFrame.Designer.cs">
+      <DependentUpon>SynchronizeHelpFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsExercisePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsExercisePanel.Designer.cs">
+      <DependentUpon>FileOptionsExercisePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsPDFPanel.Designer.cs">
+      <DependentUpon>FileOptionsPDFPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsUploadPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\FileOptionsUploadPanel.Designer.cs">
+      <DependentUpon>FileOptionsUploadPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\treeview\TreeMVC.cs" />
+    <Compile Include="domain\user\Course.cs" />
+    <Compile Include="domain\user\DocumentFolder.cs" />
+    <Compile Include="domain\user\DocumentFolderForCourse.cs" />
+    <Compile Include="domain\user\UserInfo.cs" />
+    <Compile Include="gui\InputBox.cs" />
+    <Compile Include="gui\subject\SubjectFilesSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\subject\SubjectFilesSettingsControl.Designer.cs">
+      <DependentUpon>SubjectFilesSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\treeview\ShellIcon.cs" />
+    <Compile Include="gui\treeview\TreeViewExplorer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gui\treeview\TreeViewExplorerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\treeview\TreeViewExplorerPanel.designer.cs">
+      <DependentUpon>TreeViewExplorerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\UpdateFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\UpdateFrame.Designer.cs">
+      <DependentUpon>UpdateFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\UploadFileFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\UploadFileFrame.Designer.cs">
+      <DependentUpon>UploadFileFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftExcelDocument.cs" />
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftExcelDocumentCommands.cs" />
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftPowerpointDocument.cs" />
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftPowerpointDocumentCommands.cs" />
+    <Compile Include="persistence\document\SupportedDocument.cs" />
+    <Compile Include="persistence\document\SupportedPresentationDocument.cs" />
+    <Compile Include="persistence\document\SupportedDocumentCommands.cs" />
+    <Compile Include="persistence\document\DigexStyles.cs" />
+    <Compile Include="persistence\document\SupportedOfficeFiles.cs" />
+    <Compile Include="domain\ui\UI.cs" />
+    <Compile Include="domain\user\DocumentFoldersList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\user\FileForUpload.cs" />
+    <Compile Include="domain\user\Login.cs" />
+    <Compile Include="domain\util\ExcelUtility.cs" />
+    <Compile Include="domain\util\HyperLink.cs" />
+    <Compile Include="domain\util\MIMEDictionary.cs" />
+    <Compile Include="domain\util\Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\util\xml\SGMLReaderHelper.cs" />
+    <Compile Include="domain\util\xml\SingleNodeScanner.cs" />
+    <Compile Include="gui\AboutFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\AboutFrame.Designer.cs">
+      <DependentUpon>AboutFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\CreateDocumentsFolderFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\CreateDocumentsFolderFrame.Designer.cs">
+      <DependentUpon>CreateDocumentsFolderFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ExerciseReviewFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ExerciseReviewFrame.Designer.cs">
+      <DependentUpon>ExerciseReviewFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\LoginFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\LoginFrame.Designer.cs">
+      <DependentUpon>LoginFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\SettingsFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\SettingsFrame.Designer.cs">
+      <DependentUpon>SettingsFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\StringsResetter.cs" />
+    <Compile Include="gui\TooltipChecker.cs" />
+    <Compile Include="gui\DocumentsDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\DocumentsDropDown.Designer.cs">
+      <DependentUpon>DocumentsDropDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="persistence\document\SupportedExercisesDocument.cs" />
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftWordDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftWordDocumentCommands.cs" />
+    <Compile Include="persistence\document\microsoftoffice\MicrosoftWordDocumentScanner.cs" />
+    <Compile Include="persistence\document\openoffice\OpenOfficeDocument.cs" />
+    <Compile Include="domain\DomainController.cs" />
+    <Compile Include="domain\exercise\Answer.cs" />
+    <Compile Include="domain\exercise\Exercise.cs" />
+    <Compile Include="domain\exercise\Question.cs" />
+    <Compile Include="domain\exercise\QuestionType.cs" />
+    <Compile Include="persistence\document\openoffice\OpenOfficeDocumentCommands.cs" />
+    <Compile Include="persistence\document\PDFFilterFileStream.cs" />
+    <Compile Include="persistence\document\PDFTools.cs" />
+    <Compile Include="persistence\document\SupportedSpreadsheetDocument.cs" />
+    <Compile Include="persistence\download\Downloader.cs" />
+    <Compile Include="persistence\httpcommunication\AnonymousStatistics.cs" />
+    <Compile Include="persistence\httpcommunication\HttpSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\logger\Logger.cs" />
+    <Compile Include="domain\util\xml\XmlScanner.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\GroupsScanner.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\StudentsInGroupScanner.cs" />
+    <Compile Include="persistence\platform\TargetPlatformInfo.cs" />
+    <Compile Include="persistence\platform\chamilo_2_0\Chamilo_2_0_PlatformInfo.cs" />
+    <Compile Include="persistence\platform\chamilo_2_0\post\Chamilo_2_0_Post.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\platform\chamilo_2_0\post\CourseScanner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\platform\chamilo_2_0\post\FolderScanner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\platform\chamilo_2_0\post\UserScanner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\platform\chamilo_2_0\webservice\Chamilo_2_0_Webservice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\CourseScanner.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\Dokeos_1_8_5_hg_PlatformInfo.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\FileIDScanner.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\FolderScanner.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\StatisticsScanner.cs" />
+    <Compile Include="persistence\platform\service\Service.cs" />
+    <Compile Include="persistence\platform\TargetPlatforms.cs" />
+    <Compile Include="persistence\resource\ReadFile.cs" />
+    <Compile Include="persistence\settings\SubjectSettings.cs" />
+    <Compile Include="persistence\settings\Settings.cs" />
+    <Compile Include="gui\ContainerFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ContainerFrame.Designer.cs">
+      <DependentUpon>ContainerFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="persistence\platform\TargetPlatform.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\Dokeos_1_8_5_hg.cs" />
+    <Compile Include="persistence\platform\dokeos_1_8_5_hg\QuestionTypes.cs" />
+    <Compile Include="persistence\resource\ResourceList.cs" />
+    <Compile Include="persistence\resource\ResourceLoader.cs" />
+    <Compile Include="persistence\settings\SynchronizationSettings.cs" />
+    <Compile Include="persistence\settings\Uninstall.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="gui\AboutFrame.resx">
+      <DependentUpon>AboutFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ContainerFrame.resx">
+      <DependentUpon>ContainerFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\CreateDocumentsFolderFrame.resx">
+      <DependentUpon>CreateDocumentsFolderFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\EditSubjectFrame.resx">
+      <DependentUpon>EditSubjectFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ExerciseReviewFrame.resx">
+      <DependentUpon>ExerciseReviewFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FirstRunFrame.resx">
+      <DependentUpon>FirstRunFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\LoginFrame.resx">
+      <DependentUpon>LoginFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\LogViewerFrame.resx">
+      <DependentUpon>LogViewerFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ManageSubjectsFrame.resx">
+      <DependentUpon>ManageSubjectsFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\SettingsFrame.resx">
+      <DependentUpon>SettingsFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\DocumentsDropDown.resx">
+      <DependentUpon>DocumentsDropDown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\FileOptionsExercisePanel.resx">
+      <DependentUpon>FileOptionsExercisePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\FileOptionsPDFPanel.resx">
+      <DependentUpon>FileOptionsPDFPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\FileOptionsPDFPanelForExcel.resx">
+      <DependentUpon>FileOptionsPDFPanelForExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\FileOptionsPDFPanelForPowerPoint.resx">
+      <DependentUpon>FileOptionsPDFPanelForPowerPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\FileOptionsUploadPanel.resx">
+      <DependentUpon>FileOptionsUploadPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\subject\SubjectFilesSettingsControl.resx">
+      <DependentUpon>SubjectFilesSettingsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\SynchronizeHelpFrame.resx">
+      <DependentUpon>SynchronizeHelpFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\treeview\TreeViewExplorerPanel.resx">
+      <DependentUpon>TreeViewExplorerPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\UpdateFrame.resx">
+      <DependentUpon>UpdateFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\UploadFileFrame.resx">
+      <DependentUpon>UploadFileFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="bin\Debug\language\Español_blank.dotx" />
+    <None Include="bin\Debug\language\Español.ini" />
+    <None Include="bin\Debug\language\English.ini" />
+    <None Include="bin\Debug\language\English_blank.dotx" />
+    <None Include="bin\Debug\language\English_full.dotx" />
+    <None Include="bin\Debug\language\Español_full.dotx" />
+    <None Include="bin\Debug\language\Nederlands.ini" />
+    <None Include="bin\Debug\language\Nederlands_blank.dotx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\icons.res" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant 1.11.3 Source.zip" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant 1.11.4 Source.zip" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant portable.iss" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant.iss" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\copying.rtf" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\credits.txt" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\English.ini" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\English_blank.dotx" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\English_full.dotx" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\Nederlands.ini" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\Nederlands_blank.dotx" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\language\Nederlands_full.dotx" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\LMS Desktop Assistant.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\SgmlReaderDll.dll" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\whatsnew_en.rtf" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\whatsnew_nl.rtf" />
+    <None Include="Resources\installer_files\lms_install_inno_big.bmp" />
+    <None Include="Resources\installer_files\lms_install_inno_small.bmp" />
+    <None Include="Resources\installer_files\version.txt" />
+    <None Include="Resources\installer_files\whatsnew_en_1090.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1100.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1110.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1111.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1112.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1113.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1114.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1120.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1121.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1122.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1123.rtf" />
+    <None Include="Resources\installer_files\whatsnew_en_1124.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1090.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1100.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1110.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1111.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1112.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1113.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1114.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1120.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1121.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1122.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1123.rtf" />
+    <None Include="Resources\installer_files\whatsnew_nl_1124.rtf" />
+    <None Include="Resources\lms_5.xcf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.03.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.03.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.08.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.08.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.09.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.09.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.10.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.10.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.2.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.3.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.4.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.1.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.11.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.1.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.2.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.3.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.4.pdf" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.docx" />
+    <None Include="Resources\Manuals\Handleiding_voor_eindgebruikers_1.12.pdf" />
+    <None Include="Resources\Manuals\Manual_for_developers.docx" />
+    <None Include="bin\Debug\language\Nederlands_full.dotx" />
+    <None Include="Resources\Manuals\Manual_for_developers.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.08.docx" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.08.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.09.docx" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.09.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.10.docx" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.10.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.11.2.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.11.3.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.11.4.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.11.docx" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.11.1.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.1.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.2.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.3.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.4.pdf" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.docx" />
+    <None Include="Resources\Manuals\Manual_for_end_users_1.12.pdf" />
+    <None Include="Resources\Oefeningensjabloon Leeg.dotx" />
+    <None Include="Resources\Oefeningensjabloon Voorbeeld.dotx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Office.PIARedist.2007">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Office 2007 Primary Interop Assemblies</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_up.png" />
+    <None Include="Resources\btn_down.png" />
+    <None Include="Resources\btn_save.png" />
+    <None Include="Resources\btn_open.png" />
+    <None Include="Resources\btn_reload.png" />
+    <None Include="Resources\btn_info.png" />
+    <None Include="Resources\lms_5.ico" />
+    <None Include="Resources\lms_5.png" />
+    <None Include="Resources\lms_5_uninstall.ico" />
+    <None Include="Resources\lms_5_uninstall.png" />
+    <None Include="Resources\lms_install.bmp" />
+    <None Include="Resources\lms_install_256.bmp" />
+    <None Include="Resources\sync_upload.png" />
+    <None Include="Resources\sync_added.png" />
+    <None Include="Resources\sync_changed.png" />
+    <None Include="Resources\sync_exclude.png" />
+    <None Include="Resources\sync_synchronized.png" />
+    <None Include="Resources\SgmlReaderDll.dll" />
+    <None Include="Resources\sync_edited.png" />
+    <None Include="Resources\sync_error_yellow.png" />
+    <None Include="Resources\sync_error_red.png" />
+    <None Include="Resources\sync_excludedfolder.png" />
+    <None Include="Resources\sync_excludedfile.png" />
+    <None Include="Resources\tree_corner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync_added_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.06 %28non-admin%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.06.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.07 %28non-admin%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.07.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.08 %28non-admin%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.08.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.09 %28non-admin%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.09.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant\changelog.txt" />
+    <None Include="Resources\installer_files\lmsda.ico" />
+    <None Include="Resources\installer_files\lmsda_uninstall.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.10 %28non-admin%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.10.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11 %28portable%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.1 %28portable%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.1.exe" />
+    <None Include="Resources\installer_files\putty-connect-lmsda.txt" />
+    <None Include="Resources\installer_files\settings\settings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.2 %28portable%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.2.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.3 %28portable%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.3.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.4 %28portable%29.exe" />
+    <None Include="Resources\installer_files\LMS Desktop Assistant Installer 1.11.4.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferencia1.png" />
+    <None Include="Resources\lapiz1.png" />
+    <None Include="Resources\salir1.png" />
+    <None Include="Resources\subir1.png" />
+    <None Include="Resources\iniciar-sesion %281%291.png" />
+    <None Include="Resources\cerrar-sesion1.png" />
+    <None Include="Resources\documento1.png" />
+    <None Include="Resources\administracion1.png" />
+    <None Include="Resources\ayuda1.png" />
+    <None Include="Resources\ayuda2.png" />
+    <None Include="Resources\ayuda %281%291.png" />
+    <None Include="Resources\actualizar1.png" />
+    <None Include="Resources\acerca-de1.png" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12 %28portable%29.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.1 %28portable%29.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.1.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.2 %28portable%29.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.2.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.3 %28portable%29.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.3.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.4 %28portable%29.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.4.exe" />
+    <Content Include="Resources\installer_files\LMS Desktop Assistant Installer 1.12.exe" />
+    <None Include="Resources\tocar1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

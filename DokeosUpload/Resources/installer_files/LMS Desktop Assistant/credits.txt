@@ -1,0 +1,15 @@
+2009
+The first version of the program has been created in VB.NET by Patrick Lauwaerts under the project Afstandsleren AF (Distance Learning) of the University College Ghent, Mercator - Faculty of Applied Business.
+
+Special thanks go to those who tested the program, in particular to Karine Van Biesen.
+
+2010
+Under the mentorship of Patrick Lauwaerts, and as part of their internship, Maarten Meuris and Gianni Van Hoecke (students from University College Ghent, Faculty of Business Information and ICT)  rewrote the program in C# and further enhanced it.
+Maarten and Gianni particularly paid attention to: the three layers model, design patterns, abstraction en multithreading.
+
+Special thanks also go to Michel Malengreaux and Annick Van den Meersschaut of the project Afstandsleren AF, for testing the program and to Catherine De Roo for her administrative support.
+
+Thanks also to the Faculty of Business Information and ICT, in particular to Stefaan De Cock for the guidance of the students Maarten Meuris and Gianni Van Hoecke during their internship.
+
+2011
+With the extension of the Distance Learning project, Maarten Meuris was allowed to continue working on the application, this time as a full-fledged employee of the central administration of the University College Ghent.

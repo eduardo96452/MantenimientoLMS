@@ -1,0 +1,27 @@
+PuTTY GUI:
+---------
+Session -> Host Name:
+shell.sourceforge.net
+Session -> Port:
+22
+Session -> Connection Type:
+SSH
+Connection -> Data -> Auto-login username:
+MYUSERNAME,lmsda
+Connection -> SSH -> Remote command:
+create
+
+
+Shell commands:
+--------------
+left mouse select = copy to clipboard
+right click = paste from clipboard
+
+
+cd /home/frs/project/l/lm/lmsda
+
+mv
+
+shutdown
+
+exit
