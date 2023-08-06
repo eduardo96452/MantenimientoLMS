@@ -2273,5 +2273,15 @@ namespace lmsda.gui
         {
 
         }
+
+        private void subjectFilesSettingsControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderBrowserDialog_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -166,6 +166,10 @@ namespace lmsda.gui
             this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.Filter = "Word 2007 files|*.docx";
             // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.HelpRequest += new System.EventHandler(this.folderBrowserDialog_HelpRequest);
+            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Name = "contextMenuStrip";
@@ -594,6 +598,8 @@ namespace lmsda.gui
             // 
             // cmdChooseDocument
             // 
+            this.cmdChooseDocument.BackColor = System.Drawing.Color.LightGray;
+            this.cmdChooseDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdChooseDocument.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdChooseDocument.Location = new System.Drawing.Point(7, 15);
             this.cmdChooseDocument.Margin = new System.Windows.Forms.Padding(4);
@@ -602,7 +608,7 @@ namespace lmsda.gui
             this.cmdChooseDocument.TabIndex = 3;
             this.cmdChooseDocument.Tag = "select_document";
             this.cmdChooseDocument.Text = "select_document";
-            this.cmdChooseDocument.UseVisualStyleBackColor = true;
+            this.cmdChooseDocument.UseVisualStyleBackColor = false;
             this.cmdChooseDocument.Click += new System.EventHandler(this.cmdChooseDocument_Click_1);
             // 
             // tabs
@@ -807,6 +813,8 @@ namespace lmsda.gui
             // 
             // cmdOpenTemplate
             // 
+            this.cmdOpenTemplate.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.cmdOpenTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOpenTemplate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdOpenTemplate.Location = new System.Drawing.Point(8, 10);
             this.cmdOpenTemplate.Margin = new System.Windows.Forms.Padding(4);
@@ -815,11 +823,12 @@ namespace lmsda.gui
             this.cmdOpenTemplate.TabIndex = 11;
             this.cmdOpenTemplate.Tag = "new_from_template";
             this.cmdOpenTemplate.Text = "new_from_template";
-            this.cmdOpenTemplate.UseVisualStyleBackColor = true;
+            this.cmdOpenTemplate.UseVisualStyleBackColor = false;
             this.cmdOpenTemplate.Click += new System.EventHandler(this.cmdOpenTemplate_Click_1);
             // 
             // cmdReviewExercises
             // 
+            this.cmdReviewExercises.BackColor = System.Drawing.Color.PaleTurquoise;
             this.cmdReviewExercises.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdReviewExercises.Location = new System.Drawing.Point(8, 182);
             this.cmdReviewExercises.Margin = new System.Windows.Forms.Padding(4);
@@ -828,11 +837,12 @@ namespace lmsda.gui
             this.cmdReviewExercises.TabIndex = 6;
             this.cmdReviewExercises.Tag = "review_exercises";
             this.cmdReviewExercises.Text = "review_exercises";
-            this.cmdReviewExercises.UseVisualStyleBackColor = true;
+            this.cmdReviewExercises.UseVisualStyleBackColor = false;
             this.cmdReviewExercises.Click += new System.EventHandler(this.cmdReviewExercises_Click_1);
             // 
             // cmdUploadExercises
             // 
+            this.cmdUploadExercises.BackColor = System.Drawing.Color.PaleTurquoise;
             this.cmdUploadExercises.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdUploadExercises.Location = new System.Drawing.Point(8, 254);
             this.cmdUploadExercises.Margin = new System.Windows.Forms.Padding(4);
@@ -841,7 +851,7 @@ namespace lmsda.gui
             this.cmdUploadExercises.TabIndex = 8;
             this.cmdUploadExercises.Tag = "upload_exercises";
             this.cmdUploadExercises.Text = "upload_exercises";
-            this.cmdUploadExercises.UseVisualStyleBackColor = true;
+            this.cmdUploadExercises.UseVisualStyleBackColor = false;
             this.cmdUploadExercises.Click += new System.EventHandler(this.cmdUploadExercises_Click_1);
             // 
             // txtExerciseDump
@@ -863,6 +873,7 @@ namespace lmsda.gui
             // 
             // cmdScanDocument
             // 
+            this.cmdScanDocument.BackColor = System.Drawing.Color.PaleTurquoise;
             this.cmdScanDocument.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdScanDocument.Location = new System.Drawing.Point(8, 146);
             this.cmdScanDocument.Margin = new System.Windows.Forms.Padding(4);
@@ -871,11 +882,12 @@ namespace lmsda.gui
             this.cmdScanDocument.TabIndex = 5;
             this.cmdScanDocument.Tag = "scan_document";
             this.cmdScanDocument.Text = "scan_document";
-            this.cmdScanDocument.UseVisualStyleBackColor = true;
+            this.cmdScanDocument.UseVisualStyleBackColor = false;
             this.cmdScanDocument.Click += new System.EventHandler(this.cmdScanDocument_Click_1);
             // 
             // cmdJumpToError
             // 
+            this.cmdJumpToError.BackColor = System.Drawing.Color.PaleTurquoise;
             this.cmdJumpToError.Location = new System.Drawing.Point(8, 218);
             this.cmdJumpToError.Margin = new System.Windows.Forms.Padding(4);
             this.cmdJumpToError.Name = "cmdJumpToError";
@@ -883,7 +895,7 @@ namespace lmsda.gui
             this.cmdJumpToError.TabIndex = 7;
             this.cmdJumpToError.Tag = "jump_to_error";
             this.cmdJumpToError.Text = "jump_to_error";
-            this.cmdJumpToError.UseVisualStyleBackColor = true;
+            this.cmdJumpToError.UseVisualStyleBackColor = false;
             this.cmdJumpToError.Click += new System.EventHandler(this.cmdJumpToError_Click_1);
             // 
             // tabPDF
@@ -1012,6 +1024,7 @@ namespace lmsda.gui
             // 
             // cmdConvertToPDF
             // 
+            this.cmdConvertToPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(179)))), ((int)(((byte)(71)))));
             this.cmdConvertToPDF.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdConvertToPDF.Location = new System.Drawing.Point(20, 194);
             this.cmdConvertToPDF.Margin = new System.Windows.Forms.Padding(4);
@@ -1020,7 +1033,7 @@ namespace lmsda.gui
             this.cmdConvertToPDF.TabIndex = 5;
             this.cmdConvertToPDF.Tag = "convert_to_pdf";
             this.cmdConvertToPDF.Text = "convert_to_pdf";
-            this.cmdConvertToPDF.UseVisualStyleBackColor = true;
+            this.cmdConvertToPDF.UseVisualStyleBackColor = false;
             this.cmdConvertToPDF.Click += new System.EventHandler(this.cmdConvertToPDF_Click_1);
             // 
             // documentsDropDownForPDF
@@ -1298,6 +1311,7 @@ namespace lmsda.gui
             // 
             // cmdDownloadStatistics
             // 
+            this.cmdDownloadStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(213)))));
             this.cmdDownloadStatistics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdDownloadStatistics.Location = new System.Drawing.Point(11, 407);
             this.cmdDownloadStatistics.Margin = new System.Windows.Forms.Padding(4);
@@ -1306,7 +1320,7 @@ namespace lmsda.gui
             this.cmdDownloadStatistics.TabIndex = 5;
             this.cmdDownloadStatistics.Tag = "download_statistics";
             this.cmdDownloadStatistics.Text = "download_statistics";
-            this.cmdDownloadStatistics.UseVisualStyleBackColor = true;
+            this.cmdDownloadStatistics.UseVisualStyleBackColor = false;
             this.cmdDownloadStatistics.Click += new System.EventHandler(this.cmdDownloadStatistics_Click_1);
             // 
             // tabSynchronization
@@ -1370,6 +1384,7 @@ namespace lmsda.gui
             this.cmdStartSynchronization.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdStartSynchronization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(163)))), ((int)(((byte)(216)))));
             this.cmdStartSynchronization.Location = new System.Drawing.Point(8, 5);
             this.cmdStartSynchronization.Margin = new System.Windows.Forms.Padding(4);
             this.cmdStartSynchronization.Name = "cmdStartSynchronization";
@@ -1377,7 +1392,7 @@ namespace lmsda.gui
             this.cmdStartSynchronization.TabIndex = 33;
             this.cmdStartSynchronization.Tag = "start_synchronization";
             this.cmdStartSynchronization.Text = "start_synchronization";
-            this.cmdStartSynchronization.UseVisualStyleBackColor = true;
+            this.cmdStartSynchronization.UseVisualStyleBackColor = false;
             // 
             // cmdStopSynchronization
             // 
@@ -1409,12 +1424,14 @@ namespace lmsda.gui
             this.subjectFilesSettingsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.subjectFilesSettingsControl.BackColor = System.Drawing.Color.Transparent;
             this.subjectFilesSettingsControl.Location = new System.Drawing.Point(5, 5);
             this.subjectFilesSettingsControl.Margin = new System.Windows.Forms.Padding(0);
             this.subjectFilesSettingsControl.Name = "subjectFilesSettingsControl";
             this.subjectFilesSettingsControl.ParentContainer = null;
-            this.subjectFilesSettingsControl.Size = new System.Drawing.Size(684, 364);
+            this.subjectFilesSettingsControl.Size = new System.Drawing.Size(687, 364);
             this.subjectFilesSettingsControl.TabIndex = 0;
+            this.subjectFilesSettingsControl.Load += new System.EventHandler(this.subjectFilesSettingsControl_Load);
             // 
             // grbLogin
             // 
@@ -1434,6 +1451,8 @@ namespace lmsda.gui
             // 
             // cmdLogin
             // 
+            this.cmdLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(148)))), ((int)(((byte)(213)))));
+            this.cmdLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdLogin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdLogin.Location = new System.Drawing.Point(8, 14);
             this.cmdLogin.Margin = new System.Windows.Forms.Padding(4);
@@ -1442,7 +1461,7 @@ namespace lmsda.gui
             this.cmdLogin.TabIndex = 1;
             this.cmdLogin.Tag = "login";
             this.cmdLogin.Text = "login";
-            this.cmdLogin.UseVisualStyleBackColor = true;
+            this.cmdLogin.UseVisualStyleBackColor = false;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click_1);
             // 
             // cmbCourses
@@ -1451,10 +1470,10 @@ namespace lmsda.gui
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourses.FormattingEnabled = true;
-            this.cmbCourses.Location = new System.Drawing.Point(599, 16);
+            this.cmbCourses.Location = new System.Drawing.Point(510, 16);
             this.cmbCourses.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCourses.Name = "cmbCourses";
-            this.cmbCourses.Size = new System.Drawing.Size(184, 24);
+            this.cmbCourses.Size = new System.Drawing.Size(273, 24);
             this.cmbCourses.TabIndex = 2;
             // 
             // lblInformation
