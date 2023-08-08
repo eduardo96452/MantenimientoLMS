@@ -144,6 +144,7 @@ namespace lmsda.gui
             this.lblInformation = new System.Windows.Forms.Label();
             this.cmdLogout = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
+            this.pdfViewer1 = new PdfiumViewer.PdfViewer();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuAyuda.SuspendLayout();
             this.panelSubMenuEditar.SuspendLayout();
@@ -190,7 +191,7 @@ namespace lmsda.gui
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Margin = new System.Windows.Forms.Padding(5);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(333, 654);
+            this.panelMenuLateral.Size = new System.Drawing.Size(333, 686);
             this.panelMenuLateral.TabIndex = 19;
             // 
             // panelSubMenuAyuda
@@ -552,7 +553,7 @@ namespace lmsda.gui
             this.panel1.Location = new System.Drawing.Point(333, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(833, 654);
+            this.panel1.Size = new System.Drawing.Size(833, 686);
             this.panel1.TabIndex = 20;
             // 
             // lblStatus
@@ -561,7 +562,7 @@ namespace lmsda.gui
             this.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblStatus.Location = new System.Drawing.Point(17, 626);
+            this.lblStatus.Location = new System.Drawing.Point(17, 658);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(125, 25);
@@ -624,7 +625,7 @@ namespace lmsda.gui
             this.tabs.Margin = new System.Windows.Forms.Padding(4);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(792, 484);
+            this.tabs.Size = new System.Drawing.Size(792, 516);
             this.tabs.TabIndex = 19;
             // 
             // tabExercises
@@ -900,6 +901,7 @@ namespace lmsda.gui
             // 
             // tabPDF
             // 
+            this.tabPDF.Controls.Add(this.pdfViewer1);
             this.tabPDF.Controls.Add(this.chkConvertHyperlinksToJavascript);
             this.tabPDF.Controls.Add(this.lblTreePdf02);
             this.tabPDF.Controls.Add(this.lblTreePdf01);
@@ -914,7 +916,7 @@ namespace lmsda.gui
             this.tabPDF.Margin = new System.Windows.Forms.Padding(4);
             this.tabPDF.Name = "tabPDF";
             this.tabPDF.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPDF.Size = new System.Drawing.Size(784, 455);
+            this.tabPDF.Size = new System.Drawing.Size(784, 487);
             this.tabPDF.TabIndex = 1;
             this.tabPDF.Tag = "pdf_conversion";
             this.tabPDF.Text = "pdf_conversion";
@@ -1026,7 +1028,7 @@ namespace lmsda.gui
             // 
             this.cmdConvertToPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(179)))), ((int)(((byte)(71)))));
             this.cmdConvertToPDF.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmdConvertToPDF.Location = new System.Drawing.Point(20, 194);
+            this.cmdConvertToPDF.Location = new System.Drawing.Point(20, 193);
             this.cmdConvertToPDF.Margin = new System.Windows.Forms.Padding(4);
             this.cmdConvertToPDF.Name = "cmdConvertToPDF";
             this.cmdConvertToPDF.Size = new System.Drawing.Size(213, 28);
@@ -1509,7 +1511,7 @@ namespace lmsda.gui
             this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLog.HideSelection = false;
-            this.txtLog.Location = new System.Drawing.Point(150, 628);
+            this.txtLog.Location = new System.Drawing.Point(150, 660);
             this.txtLog.Margin = new System.Windows.Forms.Padding(4);
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
@@ -1517,11 +1519,19 @@ namespace lmsda.gui
             this.txtLog.TabIndex = 20;
             this.txtLog.TabStop = false;
             // 
+            // pdfViewer1
+            // 
+            this.pdfViewer1.Location = new System.Drawing.Point(192, 225);
+            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pdfViewer1.Name = "pdfViewer1";
+            this.pdfViewer1.Size = new System.Drawing.Size(588, 254);
+            this.pdfViewer1.TabIndex = 37;
+            // 
             // ContainerFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 654);
+            this.ClientSize = new System.Drawing.Size(1166, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenuLateral);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1650,5 +1660,6 @@ namespace lmsda.gui
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Button cmdLogout;
         private System.Windows.Forms.TextBox txtLog;
+        private PdfiumViewer.PdfViewer pdfViewer1;
     }
 }

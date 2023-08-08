@@ -2110,6 +2110,9 @@ namespace lmsda.gui
                     saveToSubDir = this.documentsDropDownForPDF.getSelectedItem();
 
                 thread.Start(new String[] { saveToSubDir });
+
+
+
             }
             else
             {
