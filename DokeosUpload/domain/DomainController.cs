@@ -905,6 +905,17 @@ namespace lmsda.domain
             return error;
         }
 
+        public string direccionpdf()
+        {
+            SupportedExercisesDocument convertDocument = this.document;
+            String localSavePath = Path.GetDirectoryName(convertDocument.getDocumentPathWithFilename());
+
+            String direccion = localSavePath + "\\" + Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Substring(0, Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Length - 5).Replace(" ", "_") + ".pdf";
+
+            return direccion;
+
+        }
+
         /// <summary>
         ///     Converts a document to PDF without upload to the platform.
         /// </summary>
@@ -956,21 +967,27 @@ namespace lmsda.domain
 
                 Boolean uploadReturnValue = false;    //The path returned by the upload function.
                 String localSavePath = Path.GetDirectoryName(convertDocument.getDocumentPathWithFilename());
+                
+                
+                //MessageBox.Show(localSavePath + "\\" + Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Substring(0, Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Length - 4) + ".pdf");
+
                 //Convert
                 Boolean underscores = DomainController.Instance().getSettings().getPDFReplaceSpacesByUndescores();
                 if (split)
                     retValue = convertDocument.convertToPDFWithSplit(localSavePath, splitText, namePattern, splitOnPage, underscores , convertHyperlinksToJavascript, ref error);
                 else
                     retValue = convertDocument.convertToPDF(localSavePath, underscores, convertHyperlinksToJavascript, ref error);
-
+                
                 if (error || retValue.Count == 0)
                 {
                     DomainController.Instance().writeToLog("converting_to_pdf_failed", new String[] { Path.GetFileName(convertDocument.getDocumentPathWithFilename()) }, true, false, !this.isSynchronization);
+                    
                 }
                 else if (publishDestinations != null)
                 {
                     DomainController.Instance().writeToLog("converting_to_pdf_completed", true, false, false);
                     uploadReturnValue = uploadPDFs(retValue, publishDestinations, setInvisible, true);
+                    
 
                     if (!uploadReturnValue)
                         DomainController.Instance().writeToLog("converting_to_pdf_completed_but_upload_failed", new String[] { convertDocument.getDocumentPathWithFilename() }, true, false, !this.isSynchronization);
@@ -978,6 +995,7 @@ namespace lmsda.domain
                 else
                 {
                     DomainController.Instance().writeToLog("converting_to_pdf_completed", true, false, !this.isSynchronization);
+                    
                 }
             }
             else
@@ -987,6 +1005,8 @@ namespace lmsda.domain
 
             return retValue;
         }
+
+        
 
         public Boolean uploadPDFs(List<String> convertedPDFs, DocumentFolder publishDestinations, Boolean setInvisible)
         {

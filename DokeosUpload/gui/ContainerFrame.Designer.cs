@@ -100,6 +100,7 @@ namespace lmsda.gui
             this.cmdScanDocument = new System.Windows.Forms.Button();
             this.cmdJumpToError = new System.Windows.Forms.Button();
             this.tabPDF = new System.Windows.Forms.TabPage();
+            this.pdfViewer = new PdfiumViewer.PdfViewer();
             this.chkConvertHyperlinksToJavascript = new System.Windows.Forms.CheckBox();
             this.lblTreePdf02 = new System.Windows.Forms.Label();
             this.lblTreePdf01 = new System.Windows.Forms.Label();
@@ -144,7 +145,6 @@ namespace lmsda.gui
             this.lblInformation = new System.Windows.Forms.Label();
             this.cmdLogout = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
-            this.pdfViewer1 = new PdfiumViewer.PdfViewer();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuAyuda.SuspendLayout();
             this.panelSubMenuEditar.SuspendLayout();
@@ -652,7 +652,7 @@ namespace lmsda.gui
             this.tabExercises.Margin = new System.Windows.Forms.Padding(4);
             this.tabExercises.Name = "tabExercises";
             this.tabExercises.Padding = new System.Windows.Forms.Padding(4);
-            this.tabExercises.Size = new System.Drawing.Size(784, 455);
+            this.tabExercises.Size = new System.Drawing.Size(784, 487);
             this.tabExercises.TabIndex = 0;
             this.tabExercises.Tag = "exercises";
             this.tabExercises.Text = "exercises";
@@ -901,7 +901,7 @@ namespace lmsda.gui
             // 
             // tabPDF
             // 
-            this.tabPDF.Controls.Add(this.pdfViewer1);
+            this.tabPDF.Controls.Add(this.pdfViewer);
             this.tabPDF.Controls.Add(this.chkConvertHyperlinksToJavascript);
             this.tabPDF.Controls.Add(this.lblTreePdf02);
             this.tabPDF.Controls.Add(this.lblTreePdf01);
@@ -921,6 +921,17 @@ namespace lmsda.gui
             this.tabPDF.Tag = "pdf_conversion";
             this.tabPDF.Text = "pdf_conversion";
             this.tabPDF.UseVisualStyleBackColor = true;
+            // 
+            // pdfViewer
+            // 
+            this.pdfViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pdfViewer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pdfViewer.Location = new System.Drawing.Point(4, 233);
+            this.pdfViewer.Margin = new System.Windows.Forms.Padding(4);
+            this.pdfViewer.Name = "pdfViewer";
+            this.pdfViewer.Size = new System.Drawing.Size(776, 250);
+            this.pdfViewer.TabIndex = 37;
+            this.pdfViewer.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitWidth;
             // 
             // chkConvertHyperlinksToJavascript
             // 
@@ -1072,7 +1083,7 @@ namespace lmsda.gui
             this.tabStatistics.Location = new System.Drawing.Point(4, 25);
             this.tabStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.tabStatistics.Name = "tabStatistics";
-            this.tabStatistics.Size = new System.Drawing.Size(784, 455);
+            this.tabStatistics.Size = new System.Drawing.Size(784, 487);
             this.tabStatistics.TabIndex = 3;
             this.tabStatistics.Tag = "statistics";
             this.tabStatistics.Text = "statistics";
@@ -1333,7 +1344,7 @@ namespace lmsda.gui
             this.tabSynchronization.Location = new System.Drawing.Point(4, 25);
             this.tabSynchronization.Margin = new System.Windows.Forms.Padding(4);
             this.tabSynchronization.Name = "tabSynchronization";
-            this.tabSynchronization.Size = new System.Drawing.Size(784, 455);
+            this.tabSynchronization.Size = new System.Drawing.Size(784, 487);
             this.tabSynchronization.TabIndex = 5;
             this.tabSynchronization.Tag = "synchronization";
             this.tabSynchronization.Text = "synchronization";
@@ -1519,14 +1530,6 @@ namespace lmsda.gui
             this.txtLog.TabIndex = 20;
             this.txtLog.TabStop = false;
             // 
-            // pdfViewer1
-            // 
-            this.pdfViewer1.Location = new System.Drawing.Point(192, 225);
-            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pdfViewer1.Name = "pdfViewer1";
-            this.pdfViewer1.Size = new System.Drawing.Size(588, 254);
-            this.pdfViewer1.TabIndex = 37;
-            // 
             // ContainerFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1660,6 +1663,6 @@ namespace lmsda.gui
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Button cmdLogout;
         private System.Windows.Forms.TextBox txtLog;
-        private PdfiumViewer.PdfViewer pdfViewer1;
+        private PdfiumViewer.PdfViewer pdfViewer;
     }
 }

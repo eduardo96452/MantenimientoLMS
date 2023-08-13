@@ -36,6 +36,7 @@ using System.Linq;
 using lmsda.gui.subject;
 using lmsda.domain.score.data;
 using System.Collections.Generic;
+using PdfiumViewer;
 
 namespace lmsda.gui
 {
@@ -45,6 +46,8 @@ namespace lmsda.gui
     /// </summary>
     partial class ContainerFrame : Form, MainUI
     {
+        PdfiumViewer.PdfViewer pdf;
+
         private DomainController domainController;
         private TooltipChecker tooltipChecker;
         private Boolean componentsEnabled = true;
@@ -72,7 +75,9 @@ namespace lmsda.gui
         #region Start and stop methods
 
         public ContainerFrame()
-        {            
+        {         
+            pdf = new PdfViewer();
+
             this.domainController = DomainController.Instance();
             this.ticks = 1;
             this.timer = new System.Windows.Forms.Timer();
@@ -120,6 +125,8 @@ namespace lmsda.gui
         /// </remarks>
         private void ContainerFrame_Load(object sender, EventArgs e)
         {
+
+
             this.Text = this.domainController.getProgramTitle();
             this.lblSynchronisationStatus.Text = string.Empty;
             this.lblExerciseScanResultsDump.Text = this.domainController.getExerciseScanResults();
@@ -1619,19 +1626,25 @@ namespace lmsda.gui
 
                 if(this.rdbPerPage.Checked)
                         splitOnPage = true;
-                
+
                 if (upload)
-                    documentUploadFolder = 
+                {
+                    documentUploadFolder =
                         this.domainController.getDocumentFoldersList().getDocumentFolderFromFolderName(parameters[0]);
+                    MessageBox.Show(this.domainController.getDocumentFoldersList().getDocumentFolderFromFolderName(parameters[0]).ToString());
+                }
 
                 this.enableComponents(false);
                 Boolean uploadSucceeded = false;
                 Boolean error = this.domainController.convertToPDF(split, splitText, splitOnPage, documentUploadFolder, convertHyperlinksToJavascript, setInvisible, ref uploadSucceeded);
+                
+                
                 if (upload && !uploadSucceeded) { } // no use for this atm, since convertToPDF function throws message box
 
                 error = this.documentsDropDownForPDF.InvokeRequired;
 
                 this.documentsDropDownForPDF.Invoke(new invoke_delegate_single_parameter(setDocumentsDropDownValue), new object[] { documentsDropDownForPDF, parameters[0] });
+
             }
             catch (Exception ex)
             {
@@ -2107,18 +2120,33 @@ namespace lmsda.gui
                 String saveToSubDir = String.Empty;
 
                 if (this.documentsDropDownForPDF.getComboBox().Items.Count > 0)
+                {
                     saveToSubDir = this.documentsDropDownForPDF.getSelectedItem();
-
+                }
+                
                 thread.Start(new String[] { saveToSubDir });
 
 
-
+                String direcciondelpdf = this.domainController.direccionpdf();
+                MessageBox.Show("cargando" + direcciondelpdf);
+                verpdf(direcciondelpdf);
+                
             }
             else
             {
                 this.domainController.writeToLog("no_document_selected", true, false, true);
-            }
+            }            
         }
+
+        public void verpdf(string filepath)
+        {
+            byte[] bytes = System.IO.File.ReadAllBytes(filepath);
+            var stream = new System.IO.MemoryStream(bytes);
+            PdfDocument pdfDocument = PdfDocument.Load(stream);
+            pdfViewer.Document = pdfDocument;
+            
+        }
+        
 
         private void chkCalculateResultsPerStudent_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -2272,11 +2300,6 @@ namespace lmsda.gui
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void subjectFilesSettingsControl_Load(object sender, EventArgs e)
         {
 
@@ -2286,5 +2309,6 @@ namespace lmsda.gui
         {
 
         }
+
     }
 }

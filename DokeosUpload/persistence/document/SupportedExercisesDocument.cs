@@ -61,6 +61,7 @@ namespace lmsda.persistence.document
         ///     Converts the loaded document to PDF.
         /// </summary>
         /// <param name="destinationPath">Target folder.</param>
+
         /// <param name="replaceSpacesByUndescores">True if the final filename should contain underscores instead of spaces.</param>
         /// <param name="convertHyperlinksToJavascript">True if this method has to convert the hyperlinks.</param>
         /// <param name="error">True if error occurred.</param>

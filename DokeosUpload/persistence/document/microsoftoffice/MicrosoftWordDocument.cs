@@ -32,6 +32,7 @@ using Microsoft.Office.Interop.Word;
 using System.Xml;
 using lmsda.domain.util;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace lmsda.persistence.document.microsoftoffice
 {
@@ -703,7 +704,7 @@ namespace lmsda.persistence.document.microsoftoffice
                                                         true, 
                                                         false, 
                                                         Type.Missing);
-
+                
                 //Convert hyperlinks
                 if (convertHyperlinksToJavascript)
                 {
