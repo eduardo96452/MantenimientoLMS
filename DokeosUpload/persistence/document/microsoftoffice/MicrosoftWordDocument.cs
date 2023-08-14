@@ -704,7 +704,8 @@ namespace lmsda.persistence.document.microsoftoffice
                                                         true, 
                                                         false, 
                                                         Type.Missing);
-                
+
+                //MessageBox.Show(pdfPath);
                 //Convert hyperlinks
                 if (convertHyperlinksToJavascript)
                 {
@@ -738,6 +739,9 @@ namespace lmsda.persistence.document.microsoftoffice
             
             return retValue;
         }
+
+        
+
 
         /// <summary>
         ///     Converts a document to PDF, splitting it at the given styles, and using the given filename template.

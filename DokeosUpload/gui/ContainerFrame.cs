@@ -46,6 +46,7 @@ namespace lmsda.gui
     /// </summary>
     partial class ContainerFrame : Form, MainUI
     {
+        private System.Windows.Forms.Timer timer2;
         PdfiumViewer.PdfViewer pdf;
 
         private DomainController domainController;
@@ -77,6 +78,10 @@ namespace lmsda.gui
         public ContainerFrame()
         {         
             pdf = new PdfViewer();
+            this.timer2 = new System.Windows.Forms.Timer();
+            timer2.Interval = 5000; // 5 segundos en milisegundos
+            timer2.Tick += Timer_Tick;
+
 
             this.domainController = DomainController.Instance();
             this.ticks = 1;
@@ -125,8 +130,6 @@ namespace lmsda.gui
         /// </remarks>
         private void ContainerFrame_Load(object sender, EventArgs e)
         {
-
-
             this.Text = this.domainController.getProgramTitle();
             this.lblSynchronisationStatus.Text = string.Empty;
             this.lblExerciseScanResultsDump.Text = this.domainController.getExerciseScanResults();
@@ -182,6 +185,9 @@ namespace lmsda.gui
             this.chkOpenExcelFilesAfterConversion.Enabled = status;
 
             this.resetStrings();
+
+
+            txtpathsave.Text = this.domainController.direccionpdf();
         }
 
         /// <remarks>
@@ -678,6 +684,7 @@ namespace lmsda.gui
             this.checkForOpenDocuments();
             //this.contextMenuStrip.Show(Control.MousePosition);
             this.contextMenuStrip.Show(getFullCoordinates(cmdChooseDocument,0,cmdChooseDocument.Height));
+            
         }
 
         private void cmdChooseDocument_Click(object sender, EventArgs e)
@@ -1386,7 +1393,9 @@ namespace lmsda.gui
                 toolStripMenuItem = new ToolStripMenuItem(path);
                 toolStripMenuItem.Click += new System.EventHandler(this.openDocument_ItemClicked);
                 this.contextMenuStrip.Items.Add(toolStripMenuItem);
+                
             }
+
         }
 
         private Boolean platformIsSet() 
@@ -1655,6 +1664,8 @@ namespace lmsda.gui
                 this.enableComponents(true);
             }
         }
+
+
 
         private void scrollToLogBottom()
         {
@@ -2125,11 +2136,8 @@ namespace lmsda.gui
                 }
                 
                 thread.Start(new String[] { saveToSubDir });
-
-
-                String direcciondelpdf = this.domainController.direccionpdf();
-                MessageBox.Show("cargando" + direcciondelpdf);
-                verpdf(direcciondelpdf);
+                //cambioderuta();
+                timer2.Start();
                 
             }
             else
@@ -2146,7 +2154,18 @@ namespace lmsda.gui
             pdfViewer.Document = pdfDocument;
             
         }
-        
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer2.Stop(); // Detener el temporizador
+            //MessageBox.Show("Este es un MessageBox después de 5 segundos.");
+            String direcciondelpdf = this.domainController.direccionpdf();
+            //MessageBox.Show("cargando" + direcciondelpdf);
+            verpdf(direcciondelpdf);
+        }
+
+
+
 
         private void chkCalculateResultsPerStudent_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -2310,5 +2329,40 @@ namespace lmsda.gui
 
         }
 
+        private void cmdsearchpath_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrEmpty(dialog.SelectedPath))
+                {
+                    txtpathsave.Text = dialog.SelectedPath;
+                }
+            }
+        }
+
+        private void chkuploadpathsave_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkuploadpathsave.Checked)
+            {
+                cmdsearchpath.Enabled = true;
+                
+            }
+            else
+            {
+                cmdsearchpath.Enabled = false;
+                txtpathsave.Text = this.domainController.direccionpdf();
+            }
+        }
+
+        private void lblDocumentSelected_TextChanged(object sender, EventArgs e)
+        {
+            txtpathsave.Text = this.domainController.direccionpdf();
+        }
+
+        public string cambioderuta ()
+        {
+            return txtpathsave.Text;
+        }
     }
 }

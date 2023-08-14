@@ -44,6 +44,7 @@ using lmsda.persistence.download;
 using System.Text.RegularExpressions;
 using lmsda.persistence.httpcommunication;
 using lmsda.domain.score.data;
+using lmsda.gui;
 
 namespace lmsda.domain
 {
@@ -57,9 +58,11 @@ namespace lmsda.domain
         private static DomainController _instance;
         private static object syncLock = new object();
 
+
         private List<UI> observers;
 
         private ResourceLoader resourceLoader;
+        private ContainerFrame container;
         private Settings settings;
         private SupportedExercisesDocument document;
         private UserInfo userInfo;
@@ -907,13 +910,21 @@ namespace lmsda.domain
 
         public string direccionpdf()
         {
+            String nombredelarchivo;
+            String direccion;
             SupportedExercisesDocument convertDocument = this.document;
-            String localSavePath = Path.GetDirectoryName(convertDocument.getDocumentPathWithFilename());
-
-            String direccion = localSavePath + "\\" + Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Substring(0, Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Length - 5).Replace(" ", "_") + ".pdf";
-
+            if (convertDocument != null)
+            { 
+                nombredelarchivo = convertDocument.getDocumentPathWithFilename();
+                String localSavePath = Path.GetDirectoryName(nombredelarchivo);
+                String nombresinextension = Path.GetFileNameWithoutExtension(nombredelarchivo);
+                direccion = localSavePath + "\\" + nombresinextension.Replace(" ", "_") + ".pdf";
+            }
+            else { direccion = "sin direccion"; }
+                       
+            
             return direccion;
-
+            
         }
 
         /// <summary>
@@ -967,10 +978,10 @@ namespace lmsda.domain
 
                 Boolean uploadReturnValue = false;    //The path returned by the upload function.
                 String localSavePath = Path.GetDirectoryName(convertDocument.getDocumentPathWithFilename());
-                
-                
-                //MessageBox.Show(localSavePath + "\\" + Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Substring(0, Path.GetFileName(convertDocument.getDocumentPathWithFilename()).Length - 4) + ".pdf");
 
+
+                MessageBox.Show(container.cambioderuta());
+                
                 //Convert
                 Boolean underscores = DomainController.Instance().getSettings().getPDFReplaceSpacesByUndescores();
                 if (split)

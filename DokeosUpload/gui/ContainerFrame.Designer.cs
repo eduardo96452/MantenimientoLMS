@@ -100,6 +100,9 @@ namespace lmsda.gui
             this.cmdScanDocument = new System.Windows.Forms.Button();
             this.cmdJumpToError = new System.Windows.Forms.Button();
             this.tabPDF = new System.Windows.Forms.TabPage();
+            this.cmdsearchpath = new System.Windows.Forms.Button();
+            this.txtpathsave = new System.Windows.Forms.TextBox();
+            this.chkuploadpathsave = new System.Windows.Forms.CheckBox();
             this.pdfViewer = new PdfiumViewer.PdfViewer();
             this.chkConvertHyperlinksToJavascript = new System.Windows.Forms.CheckBox();
             this.lblTreePdf02 = new System.Windows.Forms.Label();
@@ -577,7 +580,7 @@ namespace lmsda.gui
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbDocument.Controls.Add(this.lblDocumentSelected);
             this.grbDocument.Controls.Add(this.cmdChooseDocument);
-            this.grbDocument.Location = new System.Drawing.Point(12, 85);
+            this.grbDocument.Location = new System.Drawing.Point(12, 55);
             this.grbDocument.Margin = new System.Windows.Forms.Padding(4);
             this.grbDocument.Name = "grbDocument";
             this.grbDocument.Padding = new System.Windows.Forms.Padding(4);
@@ -596,6 +599,7 @@ namespace lmsda.gui
             this.lblDocumentSelected.Size = new System.Drawing.Size(608, 22);
             this.lblDocumentSelected.TabIndex = 18;
             this.lblDocumentSelected.Text = "No document selected";
+            this.lblDocumentSelected.TextChanged += new System.EventHandler(this.lblDocumentSelected_TextChanged);
             // 
             // cmdChooseDocument
             // 
@@ -621,11 +625,11 @@ namespace lmsda.gui
             this.tabs.Controls.Add(this.tabPDF);
             this.tabs.Controls.Add(this.tabStatistics);
             this.tabs.Controls.Add(this.tabSynchronization);
-            this.tabs.Location = new System.Drawing.Point(12, 143);
+            this.tabs.Location = new System.Drawing.Point(12, 113);
             this.tabs.Margin = new System.Windows.Forms.Padding(4);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(792, 516);
+            this.tabs.Size = new System.Drawing.Size(792, 546);
             this.tabs.TabIndex = 19;
             // 
             // tabExercises
@@ -652,7 +656,7 @@ namespace lmsda.gui
             this.tabExercises.Margin = new System.Windows.Forms.Padding(4);
             this.tabExercises.Name = "tabExercises";
             this.tabExercises.Padding = new System.Windows.Forms.Padding(4);
-            this.tabExercises.Size = new System.Drawing.Size(784, 487);
+            this.tabExercises.Size = new System.Drawing.Size(784, 517);
             this.tabExercises.TabIndex = 0;
             this.tabExercises.Tag = "exercises";
             this.tabExercises.Text = "exercises";
@@ -901,6 +905,9 @@ namespace lmsda.gui
             // 
             // tabPDF
             // 
+            this.tabPDF.Controls.Add(this.cmdsearchpath);
+            this.tabPDF.Controls.Add(this.txtpathsave);
+            this.tabPDF.Controls.Add(this.chkuploadpathsave);
             this.tabPDF.Controls.Add(this.pdfViewer);
             this.tabPDF.Controls.Add(this.chkConvertHyperlinksToJavascript);
             this.tabPDF.Controls.Add(this.lblTreePdf02);
@@ -916,19 +923,60 @@ namespace lmsda.gui
             this.tabPDF.Margin = new System.Windows.Forms.Padding(4);
             this.tabPDF.Name = "tabPDF";
             this.tabPDF.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPDF.Size = new System.Drawing.Size(784, 487);
+            this.tabPDF.Size = new System.Drawing.Size(784, 517);
             this.tabPDF.TabIndex = 1;
             this.tabPDF.Tag = "pdf_conversion";
             this.tabPDF.Text = "pdf_conversion";
             this.tabPDF.UseVisualStyleBackColor = true;
             // 
+            // cmdsearchpath
+            // 
+            this.cmdsearchpath.BackColor = System.Drawing.Color.LightGray;
+            this.cmdsearchpath.Enabled = false;
+            this.cmdsearchpath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdsearchpath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmdsearchpath.Location = new System.Drawing.Point(613, 177);
+            this.cmdsearchpath.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdsearchpath.Name = "cmdsearchpath";
+            this.cmdsearchpath.Size = new System.Drawing.Size(161, 28);
+            this.cmdsearchpath.TabIndex = 40;
+            this.cmdsearchpath.Tag = "search_path";
+            this.cmdsearchpath.Text = "search_path";
+            this.cmdsearchpath.UseVisualStyleBackColor = false;
+            this.cmdsearchpath.Click += new System.EventHandler(this.cmdsearchpath_Click);
+            // 
+            // txtpathsave
+            // 
+            this.txtpathsave.Enabled = false;
+            this.txtpathsave.Location = new System.Drawing.Point(267, 180);
+            this.txtpathsave.Margin = new System.Windows.Forms.Padding(4);
+            this.txtpathsave.Multiline = true;
+            this.txtpathsave.Name = "txtpathsave";
+            this.txtpathsave.ReadOnly = true;
+            this.txtpathsave.Size = new System.Drawing.Size(338, 22);
+            this.txtpathsave.TabIndex = 39;
+            // 
+            // chkuploadpathsave
+            // 
+            this.chkuploadpathsave.AutoSize = true;
+            this.chkuploadpathsave.Location = new System.Drawing.Point(20, 181);
+            this.chkuploadpathsave.Margin = new System.Windows.Forms.Padding(4);
+            this.chkuploadpathsave.Name = "chkuploadpathsave";
+            this.chkuploadpathsave.Size = new System.Drawing.Size(138, 20);
+            this.chkuploadpathsave.TabIndex = 38;
+            this.chkuploadpathsave.Tag = "upload_path_save";
+            this.chkuploadpathsave.Text = "upload_path_save";
+            this.chkuploadpathsave.UseVisualStyleBackColor = true;
+            this.chkuploadpathsave.CheckedChanged += new System.EventHandler(this.chkuploadpathsave_CheckedChanged);
+            // 
             // pdfViewer
             // 
             this.pdfViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pdfViewer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pdfViewer.Location = new System.Drawing.Point(4, 233);
+            this.pdfViewer.Location = new System.Drawing.Point(4, 263);
             this.pdfViewer.Margin = new System.Windows.Forms.Padding(4);
             this.pdfViewer.Name = "pdfViewer";
+            this.pdfViewer.ShowToolbar = false;
             this.pdfViewer.Size = new System.Drawing.Size(776, 250);
             this.pdfViewer.TabIndex = 37;
             this.pdfViewer.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitWidth;
@@ -936,7 +984,7 @@ namespace lmsda.gui
             // chkConvertHyperlinksToJavascript
             // 
             this.chkConvertHyperlinksToJavascript.AutoSize = true;
-            this.chkConvertHyperlinksToJavascript.Location = new System.Drawing.Point(20, 156);
+            this.chkConvertHyperlinksToJavascript.Location = new System.Drawing.Point(20, 150);
             this.chkConvertHyperlinksToJavascript.Margin = new System.Windows.Forms.Padding(4);
             this.chkConvertHyperlinksToJavascript.Name = "chkConvertHyperlinksToJavascript";
             this.chkConvertHyperlinksToJavascript.Size = new System.Drawing.Size(221, 20);
@@ -1001,7 +1049,7 @@ namespace lmsda.gui
             // 
             this.chkUpload.AutoSize = true;
             this.chkUpload.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkUpload.Location = new System.Drawing.Point(20, 114);
+            this.chkUpload.Location = new System.Drawing.Point(20, 115);
             this.chkUpload.Margin = new System.Windows.Forms.Padding(4);
             this.chkUpload.Name = "chkUpload";
             this.chkUpload.Size = new System.Drawing.Size(200, 20);
@@ -1014,7 +1062,7 @@ namespace lmsda.gui
             // txtSplit
             // 
             this.txtSplit.Enabled = false;
-            this.txtSplit.Location = new System.Drawing.Point(255, 17);
+            this.txtSplit.Location = new System.Drawing.Point(267, 17);
             this.txtSplit.Margin = new System.Windows.Forms.Padding(4);
             this.txtSplit.Name = "txtSplit";
             this.txtSplit.Size = new System.Drawing.Size(132, 22);
@@ -1025,7 +1073,7 @@ namespace lmsda.gui
             // 
             this.chkSplit.AutoSize = true;
             this.chkSplit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSplit.Location = new System.Drawing.Point(20, 20);
+            this.chkSplit.Location = new System.Drawing.Point(20, 17);
             this.chkSplit.Margin = new System.Windows.Forms.Padding(4);
             this.chkSplit.Name = "chkSplit";
             this.chkSplit.Size = new System.Drawing.Size(107, 20);
@@ -1039,7 +1087,7 @@ namespace lmsda.gui
             // 
             this.cmdConvertToPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(179)))), ((int)(((byte)(71)))));
             this.cmdConvertToPDF.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmdConvertToPDF.Location = new System.Drawing.Point(20, 193);
+            this.cmdConvertToPDF.Location = new System.Drawing.Point(20, 217);
             this.cmdConvertToPDF.Margin = new System.Windows.Forms.Padding(4);
             this.cmdConvertToPDF.Name = "cmdConvertToPDF";
             this.cmdConvertToPDF.Size = new System.Drawing.Size(213, 28);
@@ -1053,7 +1101,7 @@ namespace lmsda.gui
             // 
             this.documentsDropDownForPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentsDropDownForPDF.Location = new System.Drawing.Point(308, 107);
+            this.documentsDropDownForPDF.Location = new System.Drawing.Point(267, 104);
             this.documentsDropDownForPDF.Margin = new System.Windows.Forms.Padding(4);
             this.documentsDropDownForPDF.Name = "documentsDropDownForPDF";
             this.documentsDropDownForPDF.Size = new System.Drawing.Size(563, 34);
@@ -1083,7 +1131,7 @@ namespace lmsda.gui
             this.tabStatistics.Location = new System.Drawing.Point(4, 25);
             this.tabStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.tabStatistics.Name = "tabStatistics";
-            this.tabStatistics.Size = new System.Drawing.Size(784, 487);
+            this.tabStatistics.Size = new System.Drawing.Size(784, 517);
             this.tabStatistics.TabIndex = 3;
             this.tabStatistics.Tag = "statistics";
             this.tabStatistics.Text = "statistics";
@@ -1344,7 +1392,7 @@ namespace lmsda.gui
             this.tabSynchronization.Location = new System.Drawing.Point(4, 25);
             this.tabSynchronization.Margin = new System.Windows.Forms.Padding(4);
             this.tabSynchronization.Name = "tabSynchronization";
-            this.tabSynchronization.Size = new System.Drawing.Size(784, 487);
+            this.tabSynchronization.Size = new System.Drawing.Size(784, 517);
             this.tabSynchronization.TabIndex = 5;
             this.tabSynchronization.Tag = "synchronization";
             this.tabSynchronization.Text = "synchronization";
@@ -1454,7 +1502,7 @@ namespace lmsda.gui
             this.grbLogin.Controls.Add(this.cmbCourses);
             this.grbLogin.Controls.Add(this.lblInformation);
             this.grbLogin.Controls.Add(this.cmdLogout);
-            this.grbLogin.Location = new System.Drawing.Point(12, 27);
+            this.grbLogin.Location = new System.Drawing.Point(12, 4);
             this.grbLogin.Margin = new System.Windows.Forms.Padding(4);
             this.grbLogin.Name = "grbLogin";
             this.grbLogin.Padding = new System.Windows.Forms.Padding(4);
@@ -1664,5 +1712,8 @@ namespace lmsda.gui
         private System.Windows.Forms.Button cmdLogout;
         private System.Windows.Forms.TextBox txtLog;
         private PdfiumViewer.PdfViewer pdfViewer;
+        private System.Windows.Forms.CheckBox chkuploadpathsave;
+        private System.Windows.Forms.Button cmdsearchpath;
+        private System.Windows.Forms.TextBox txtpathsave;
     }
 }
