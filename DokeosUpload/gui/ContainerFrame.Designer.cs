@@ -872,7 +872,7 @@ namespace lmsda.gui
             this.txtExerciseDump.Name = "txtExerciseDump";
             this.txtExerciseDump.ReadOnly = true;
             this.txtExerciseDump.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtExerciseDump.Size = new System.Drawing.Size(452, 449);
+            this.txtExerciseDump.Size = new System.Drawing.Size(452, 446);
             this.txtExerciseDump.TabIndex = 6;
             this.txtExerciseDump.TabStop = false;
             // 

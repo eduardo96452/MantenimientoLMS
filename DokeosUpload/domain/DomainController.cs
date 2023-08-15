@@ -57,12 +57,21 @@ namespace lmsda.domain
     {
         private static DomainController _instance;
         private static object syncLock = new object();
+        
 
+        private string Valordireccion;
+
+        public string Direccionvalor
+        {
+            get { return Valordireccion; }
+            set { Valordireccion = value; }
+        }
+        
 
         private List<UI> observers;
 
         private ResourceLoader resourceLoader;
-        private ContainerFrame container;
+        public ContainerFrame container;
         private Settings settings;
         private SupportedExercisesDocument document;
         private UserInfo userInfo;
@@ -83,6 +92,10 @@ namespace lmsda.domain
 
         #region Constructor and singleton pattern
 
+        public DomainController(string hola) 
+        {
+            Valordireccion = hola;
+        }
         /// <summary>
         ///     Default constructor.
         ///     Loads the settings and the language.
@@ -980,7 +993,7 @@ namespace lmsda.domain
                 String localSavePath = Path.GetDirectoryName(convertDocument.getDocumentPathWithFilename());
 
 
-                MessageBox.Show(container.cambioderuta());
+                MessageBox.Show("Esta es la direcion: " + Valordireccion);
                 
                 //Convert
                 Boolean underscores = DomainController.Instance().getSettings().getPDFReplaceSpacesByUndescores();
@@ -1016,8 +1029,10 @@ namespace lmsda.domain
 
             return retValue;
         }
-
-        
+        /*public void direccioncambio(string valor)
+        {
+            Valordireccion = valor; // Asignar el valor del TextBox del Form1 al TextBox del Form2
+        }*/
 
         public Boolean uploadPDFs(List<String> convertedPDFs, DocumentFolder publishDestinations, Boolean setInvisible)
         {

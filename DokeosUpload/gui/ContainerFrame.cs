@@ -2124,6 +2124,8 @@ namespace lmsda.gui
 
         private void cmdConvertToPDF_Click_1(object sender, EventArgs e)
         {
+            DomainController dominiocontrol = new DomainController(txtpathsave.Text);
+            dominiocontrol.Direccionvalor = txtpathsave.Text;
             if (this.domainController.isDocumentSet())
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(doConvertToPDF));
@@ -2136,6 +2138,10 @@ namespace lmsda.gui
                 }
                 
                 thread.Start(new String[] { saveToSubDir });
+                
+
+                MessageBox.Show("Esto esta dentro del texbox: " + txtpathsave.Text);
+                
                 //cambioderuta();
                 timer2.Start();
                 
@@ -2360,9 +2366,10 @@ namespace lmsda.gui
             txtpathsave.Text = this.domainController.direccionpdf();
         }
 
-        public string cambioderuta ()
+        /*public string cambioderuta()
         {
+            DomainController.
             return txtpathsave.Text;
-        }
+        }*/
     }
 }
